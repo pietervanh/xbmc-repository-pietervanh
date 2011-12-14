@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon	id="repository.pietervanh.addons"
-		name="pietervanh's repo"
-		version="1.0.0"
-		provider-name="pietervanh">
-	<extension	point="xbmc.addon.repository"
-				name="pietervanh's repo">
-		<info compressed="false">https://github.com/pietervanh/xbmc-repository-pietervanh/raw/master/addons.xml</info>
-		<checksum>https://github.com/pietervanh/xbmc-repository-pietervanh/raw/master/addons.xml.md5</checksum>
-		<datadir zip="true">https://github.com/pietervanh/xbmc-repository-pietervanh/raw/master</datadir>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<summary>Install pietervanh's repo</summary>
-		<description>Download and install pietervanh's repo</description>
-		<disclaimer></disclaimer>
-		<platform>all</platform>
-	</extension>
-</addon>
-
 <addon id="plugin.audio.soundcloud"
        name="SoundCloud"
        version="0.2.4"
@@ -36,5 +18,23 @@
     <description lang="en">SoundCloud is a platform for musicians to promote and distribute their music online.
 This is a third-party add-on, which uses public web services exposed by SoundCloud. Neither the XBMC community, nor the developer of this add-on is in any way affiliated with SoundCloud Ltd.</description>
   </extension>
+</addon>
+
+<addon	id="repository.pietervanh.addons"
+		name="pietervanh's repo"
+		version="1.0.0"
+		provider-name="pietervanh">
+	<extension	point="xbmc.addon.repository"
+				name="pietervanh's repo">
+		<info compressed="false">https://github.com/pietervanh/xbmc-repository-pietervanh/raw/master/addons.xml</info>
+		<checksum>https://github.com/pietervanh/xbmc-repository-pietervanh/raw/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://github.com/pietervanh/xbmc-repository-pietervanh/raw/master</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Install pietervanh's repo</summary>
+		<description>Download and install pietervanh's repo</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
 </addon>
 </addons>
