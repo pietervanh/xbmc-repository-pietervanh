@@ -12,9 +12,9 @@
         <provides>audio</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <platform>all</platform>
-    <summary lang="en">XBMC Plugin for SoundCloud</summary>
-    <description lang="en">SoundCloud is a platform for musicians to promote and distribute their music online.
+    <summary>XBMC Plugin for SoundCloud</summary>
+    <description>SoundCloud is a platform for musicians to promote and distribute their music online.
 This is a third-party add-on, which uses public web services exposed by SoundCloud. Neither the XBMC community, nor the developer of this add-on is in any way affiliated with SoundCloud Ltd.</description>
+	<platform>all</platform>
   </extension>
 </addon>
