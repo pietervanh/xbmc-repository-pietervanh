@@ -26,9 +26,6 @@ import urllib
 import simplejson as json
 import urlparse
 
-dbg = True # Set to false if you don't want debugging
-dbglevel = 3 # Do NOT change from 3
-
 # SoundCloud application consumer key.
 CONSUMER_KEY = "91c61ef4dbc96933eff93325b5d5183e"
 CLIENT_ID_VALUE = CONSUMER_KEY
@@ -88,7 +85,6 @@ class SoundCloudClient(object):
         '''
         Constructor
         '''
-        self.common = sys.modules[ "__main__" ].common
         self.login = login
         self.username = username
         self.password = password
@@ -126,13 +122,11 @@ class SoundCloudClient(object):
                    USERNAME_KEY: self.username,
                    PASSWORD_KEY: self.password}
         urldata = urllib.urlencode(urlparams)
-
         h = httplib2.Http(disable_ssl_certificate_validation=True)
         response, content = h.request(url, 'POST', urldata,
                                          headers={'Content-type': 'application/x-www-form-urlencoded'})
 
         qs = dict(urlparse.parse_qs(response['location']))
-        self.common.log("New Login " + qs.get(REDURI + "?#access_token")[0])
         return qs.get(REDURI + "?#access_token")[0]
 
 #AUTHENTICATED ACCESS
@@ -285,11 +279,12 @@ class SoundCloudClient(object):
         url = '%susers/%s/%s.%s?%s' % (base, user_permalink, resource_type, format, str(urllib.urlencode(parameters)))
         return url
     
-    def _http_get_json(self,url):
-        result = self.common._fetchPage({"link": url})
-        if result["status"] != 200:
-            raise RuntimeError('Error')
+    def _http_get_json(self, url):
+        h = httplib2.Http(disable_ssl_certificate_validation=True)
+        resp, content = h.request(url, 'GET')
+        if resp.status == 401:
+            raise RuntimeError('Authentication error')
         
-        return json.loads(result["content"])
+        return json.loads(content)
 
     
